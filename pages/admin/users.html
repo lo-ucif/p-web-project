@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - TechHub Admin</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div style="display: flex; min-height: 100vh;">
+        <aside style="width: 250px; background: white; border-right: 1px solid var(--border); padding: 24px; position: fixed; height: 100vh;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 40px;">
+                <div class="logo-icon"></div>
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem;">TechHub</span>
+            </div>
+            <nav>
+                <a href="dashboard.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: var(--body); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="products.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: var(--body); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-box"></i> Products</a>
+                <a href="orders.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: var(--body); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-shopping-bag"></i> Orders</a>
+                <a href="users.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: var(--primary); background: var(--primary-light); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-users"></i> Users</a>
+                <a href="#" onclick="logout()" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: #dc3545; font-weight: 600; margin-top: 40px;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main style="flex: 1; margin-left: 250px; padding: 24px 40px; background: var(--page-bg);">
+            <header style="margin-bottom: 24px;">
+                <h1 style="font-size: 1.75rem;">User Management</h1>
+                <p style="color: var(--muted);" id="userCount">0 users</p>
+            </header>
+            
+            <div style="background: white; border-radius: 12px; border: 1px solid var(--border-light); padding: 24px;">
+                <div style="display: flex; gap: 16px; margin-bottom: 24px;">
+                    <input type="text" id="searchInput" placeholder="Search users..." oninput="filterUsers()" style="flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 6px;">
+                    <select id="roleFilter" onchange="filterUsers()" style="padding: 12px; border: 1px solid var(--border); border-radius: 6px;">
+                        <option value="">All Roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="client">Client</option>
+                    </select>
+                </div>
+                <div id="usersTable"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/products.js"></script>
+    <script src="../../js/cart.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!Auth.protectAdmin()) return;
+            loadUsers();
+        });
+
+        function loadUsers() {
+            const users = Auth.getUsers();
+            const currentUser = Auth.getCurrentUser();
+            
+            document.getElementById('userCount').textContent = `${users.length} users`;
+            const container = document.getElementById('usersTable');
+            
+            if (users.length === 0) {
+                container.innerHTML = `<p style="text-align: center; padding: 40px; color: var(--muted);">No users found</p>`;
+                return;
+            }
+            
+            container.innerHTML = `
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--section-bg);">
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">User</th>
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">Email</th>
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">Role</th>
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">Orders</th>
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">Status</th>
+                            <th style="padding: 12px; text-align: left; font-size: 0.875rem; color: var(--muted);">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersBody"></tbody>
+                </table>
+            `;
+            
+            renderUserRows(users.filter(u => u.id !== currentUser.id));
+        }
+
+        function renderUserRows(users) {
+            const tbody = document.getElementById('usersBody');
+            tbody.innerHTML = users.map(user => `
+                <tr style="border-bottom: 1px solid var(--border-light);">
+                    <td style="padding: 16px 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                                ${user.name.charAt(0).toUpperCase()}
+                            </div>
+                            <span style="font-weight: 600;">${user.name}</span>
+                        </div>
+                    </td>
+                    <td style="padding: 16px 12px;">${user.email}</td>
+                    <td style="padding: 16px 12px;">
+                        <span style="padding: 4px 12px; background: ${user.role === 'admin' ? '#dc3545' : 'var(--primary)'}; color: white; font-size: 0.75rem; font-weight: 600; border-radius: 4px;">
+                            ${user.role.toUpperCase()}
+                        </span>
+                    </td>
+                    <td style="padding: 16px 12px;">${user.orders ? user.orders.length : 0}</td>
+                    <td style="padding: 16px 12px;">
+                        <span style="padding: 4px 12px; background: ${user.blocked ? '#f8d7da' : '#d1e7dd'}; color: ${user.blocked ? '#842029' : '#0f5132'}; font-size: 0.75rem; font-weight: 600; border-radius: 4px;">
+                            ${user.blocked ? 'Blocked' : 'Active'}
+                        </span>
+                    </td>
+                    <td style="padding: 16px 12px;">
+                        <button onclick="toggleRole(${user.id})" style="background: var(--primary-light); color: var(--primary); border: none; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; margin-right: 4px;" title="Toggle Role"><i class="fas fa-user-shield"></i></button>
+                        <button onclick="toggleBlock(${user.id}, ${user.blocked})" style="background: rgba(255,193,7,0.1); color: #ffc107; border: none; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; margin-right: 4px;"><i class="fas fa-${user.blocked ? 'unlock' : 'ban'}"></i></button>
+                        <button onclick="deleteUser(${user.id})" style="background: rgba(220,53,69,0.1); color: #dc3545; border: none; width: 32px; height: 32px; border-radius: 6px; cursor: pointer;"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterUsers() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const role = document.getElementById('roleFilter').value;
+            const currentUser = Auth.getCurrentUser();
+            
+            let users = Auth.getUsers().filter(u => u.id !== currentUser.id);
+            users = users.filter(u => {
+                const matchSearch = u.name.toLowerCase().includes(search) || u.email.toLowerCase().includes(search);
+                const matchRole = !role || u.role === role;
+                return matchSearch && matchRole;
+            });
+            
+            renderUserRows(users);
+        }
+
+        function toggleRole(userId) {
+            const users = Auth.getUsers();
+            const idx = users.findIndex(u => u.id === userId);
+            if (idx > -1) {
+                users[idx].role = users[idx].role === 'admin' ? 'client' : 'admin';
+                Auth.saveUsers(users);
+                loadUsers();
+            }
+        }
+
+        function toggleBlock(userId, isBlocked) {
+            const users = Auth.getUsers();
+            const idx = users.findIndex(u => u.id === userId);
+            if (idx > -1) {
+                users[idx].blocked = !isBlocked;
+                Auth.saveUsers(users);
+                loadUsers();
+            }
+        }
+
+        function deleteUser(userId) {
+            if (confirm('Delete this user?')) {
+                let users = Auth.getUsers().filter(u => u.id !== userId);
+                Auth.saveUsers(users);
+                loadUsers();
+            }
+        }
+
+        function logout() { if (confirm('Logout?')) { Auth.logout(); window.location.href = 'login.html'; } }
+    </script>
+</body>
+</html>
