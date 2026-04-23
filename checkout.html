@@ -1,249 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - TechHub</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - TechStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
-<body>
+<body data-page="checkout">
+  <header class="site-header glass page-shell">
     <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon"></div>
-                TechHub
-            </a>
-            
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html?category=smartphone">Phones</a></li>
-                <li><a href="index.html?category=laptop">Laptops</a></li>
-                <li><a href="index.html?category=tablet">Tablets</a></li>
-                <li><a href="index.html?category=accessory">Accessories</a></li>
-            </ul>
-            
-            <div class="nav-actions">
-                <button class="cart-btn" onclick="window.location.href='cart.html'">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count" style="display: none;">0</span>
-                </button>
-                <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
-            </div>
-        </div>
+      <a class="nav-brand" href="index.html"><span class="logo-dot"></span>TechStore</a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#products">Products</a>
+        <a class="nav-link active" href="cart.html">Cart <span id="cartCount">0</span></a>
+      </div>
     </nav>
+  </header>
 
-    <main class="section">
-        <div class="container">
-            <h1 style="margin-bottom: 24px;">Checkout</h1>
-            <div id="checkoutContent"></div>
+  <main class="checkout-page page-shell">
+    <section class="checkout-panel glass">
+      <h1 class="page-title" style="margin-bottom:1rem;">Checkout</h1>
+      <form id="checkoutForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" class="field" type="text" placeholder="Enter full name">
+            <small class="error" id="fullNameError">Full name is required.</small>
+          </div>
+
+          <div class="form-group full">
+            <label for="address">Address</label>
+            <input id="address" class="field" type="text" placeholder="Street, city, zip code">
+            <small class="error" id="addressError">Address is required.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" class="field" type="tel" placeholder="+213...">
+            <small class="error" id="phoneError">Enter a valid phone number.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="payment">Payment Method</label>
+            <select id="payment" class="select">
+              <option value="">Select payment method</option>
+              <option value="cash">Cash on Delivery</option>
+              <option value="card">Credit Card</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+            <small class="error" id="paymentError">Choose a payment method.</small>
+          </div>
         </div>
-    </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>© 2024 TechHub. Constantine 2 University.</p>
-            </div>
-        </div>
-    </footer>
+        <button class="btn btn-primary" type="submit" style="width:100%; margin-top:0.9rem;">Submit Order</button>
+      </form>
+    </section>
+  </main>
 
-    <script src="js/products.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/checkout.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const items = Cart.getItems();
-            
-            if (items.length === 0) {
-                window.location.href = 'cart.html';
-                return;
-            }
-            
-            renderCheckout();
-        });
-
-        function renderCheckout() {
-            const items = Cart.getItems();
-            const subtotal = Cart.getSubtotal();
-            const tax = Cart.getTax();
-            const total = Cart.getTotal();
-            
-            const container = document.getElementById('checkoutContent');
-            container.innerHTML = `
-                <div class="cart-page">
-                    <div>
-                        <form id="checkoutForm" class="checkout-form">
-                            <h3><i class="fas fa-user" style="margin-right: 8px;"></i> Contact Information</h3>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name *</label>
-                                    <input type="text" id="fullName" required value="${Auth.getCurrentUser()?.name || ''}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" id="email" required value="${Auth.getCurrentUser()?.email || ''}">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone *</label>
-                                <input type="tel" id="phone" required value="${Auth.getCurrentUser()?.phone || ''}">
-                            </div>
-                            
-                            <h3 style="margin-top: 24px;"><i class="fas fa-truck" style="margin-right: 8px;"></i> Delivery Address</h3>
-                            
-                            <div class="form-group">
-                                <label for="address">Street Address *</label>
-                                <input type="text" id="address" required placeholder="123 Main Street">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="city">City *</label>
-                                    <input type="text" id="city" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="zipCode">Postal Code *</label>
-                                    <input type="text" id="zipCode" required>
-                                </div>
-                            </div>
-                            
-                            <h3 style="margin-top: 24px;"><i class="fas fa-wallet" style="margin-right: 8px;"></i> Payment Method</h3>
-                            
-                            <div style="display: flex; gap: 16px; margin-bottom: 24px;">
-                                <label style="display: flex; align-items: center; gap: 8px; padding: 16px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; flex: 1;">
-                                    <input type="radio" name="paymentMethod" value="cod" checked>
-                                    <i class="fas fa-money-bill-wave" style="color: #198754;"></i>
-                                    <span>Cash on Delivery</span>
-                                </label>
-                                <label style="display: flex; align-items: center; gap: 8px; padding: 16px; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; flex: 1;">
-                                    <input type="radio" name="paymentMethod" value="card">
-                                    <i class="fas fa-credit-card" style="color: var(--primary);"></i>
-                                    <span>Credit Card</span>
-                                </label>
-                            </div>
-                            
-                            <div id="formErrors" style="display: none;"></div>
-                            
-                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                                <i class="fas fa-lock"></i> Place Order - $${total.toFixed(2)}
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <div class="cart-summary">
-                        <h3>Order Summary</h3>
-                        
-                        <div style="max-height: 250px; overflow-y: auto; margin-bottom: 16px;">
-                            ${items.map(item => `
-                                <div style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-light);">
-                                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: contain; background: var(--section-bg); border-radius: 6px;">
-                                    <div style="flex: 1;">
-                                        <p style="font-weight: 600; font-size: 0.875rem; margin: 0;">${item.name}</p>
-                                        <p style="color: var(--muted); font-size: 0.75rem; margin: 0;">Qty: ${item.quantity}</p>
-                                    </div>
-                                    <p style="font-weight: 600;">$${(item.price * item.quantity).toFixed(2)}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                        
-                        <div class="summary-row">
-                            <span>Subtotal</span>
-                            <span>$${subtotal.toFixed(2)}</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Shipping</span>
-                            <span style="color: #198754;">Free</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>Tax</span>
-                            <span>$${tax.toFixed(2)}</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total</span>
-                            <span>$${total.toFixed(2)}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('checkoutForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const formData = {
-                    fullName: document.getElementById('fullName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    address: document.getElementById('address').value,
-                    city: document.getElementById('city').value,
-                    zipCode: document.getElementById('zipCode').value,
-                    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value
-                };
-                
-                const errors = Checkout.validateForm(formData);
-                
-                if (errors.length > 0) {
-                    const errorContainer = document.getElementById('formErrors');
-                    errorContainer.innerHTML = `
-                        <div class="alert alert-danger">
-                            <strong>Please fix the following errors:</strong>
-                            <ul style="margin: 8px 0 0 16px;">
-                                ${errors.map(err => `<li>${err}</li>`).join('')}
-                            </ul>
-                        </div>
-                    `;
-                    errorContainer.style.display = 'block';
-                    return;
-                }
-                
-                placeOrder(formData);
-            });
-        }
-
-        function placeOrder(formData) {
-            const order = Checkout.createOrder(formData);
-            
-            const container = document.getElementById('checkoutContent');
-            container.innerHTML = `
-                <div style="text-align: center; padding: 60px 40px; background: white; border-radius: 12px; border: 1px solid var(--border-light);">
-                    <div style="width: 80px; height: 80px; background: #d1e7dd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
-                        <i class="fas fa-check" style="font-size: 2.5rem; color: #198754;"></i>
-                    </div>
-                    <h1 style="color: #198754; margin-bottom: 16px;">Order Placed!</h1>
-                    <p style="font-size: 1.125rem; color: var(--muted); margin-bottom: 8px;">Thank you for your purchase.</p>
-                    <p style="font-size: 1.25rem; margin-bottom: 24px;">Order ID: <strong style="color: var(--primary);">${order.id}</strong></p>
-                    <p style="color: var(--muted); margin-bottom: 32px;">A confirmation email has been sent to ${formData.email}</p>
-                    <div style="display: flex; gap: 16px; justify-content: center;">
-                        <a href="order-history.html" class="btn btn-primary">
-                            <i class="fas fa-list"></i> View Orders
-                        </a>
-                        <a href="index.html" class="btn btn-outline">
-                            <i class="fas fa-shopping-bag"></i> Continue Shopping
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-    </script>
-    
-    <style>
-        @media (max-width: 768px) {
-            .cart-page {
-                grid-template-columns: 1fr !important;
-            }
-            
-            input[type="radio"] + span {
-                font-size: 0.875rem;
-            }
-        }
-    </style>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
 </body>
 </html>

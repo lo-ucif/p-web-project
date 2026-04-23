@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "Apex X Pro 5G",
+    "brand": "Apex",
+    "type": "mobile",
+    "price": 899,
+    "newest": 202603,
+    "availability": "In Stock",
+    "description": "Flagship smartphone with AI camera and ultra fast charging.",
+    "storageOptions": ["128GB", "256GB", "512GB"],
+    "colorOptions": ["Obsidian", "Silver", "Blue"],
+    "specs": {"RAM": "12GB", "CPU": "Snapdragon 8 Gen 3", "Battery": "5000mAh", "Display": "6.7 OLED"},
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Nexus Fold Air",
+    "brand": "Nexus",
+    "type": "mobile",
+    "price": 1099,
+    "newest": 202604,
+    "availability": "In Stock",
+    "description": "Foldable design with premium hinge and immersive inner display.",
+    "storageOptions": ["256GB", "512GB"],
+    "colorOptions": ["Black", "Violet"],
+    "specs": {"RAM": "12GB", "CPU": "Tensor X2", "Battery": "4700mAh", "Display": "7.8 Fold OLED"},
+    "images": [
+      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "TitanBook 16 Ultra",
+    "brand": "Titan",
+    "type": "laptop",
+    "price": 1899,
+    "newest": 202602,
+    "availability": "In Stock",
+    "description": "High performance laptop for creators and engineers.",
+    "storageOptions": ["512GB", "1TB", "2TB"],
+    "colorOptions": ["Space Gray", "Silver"],
+    "specs": {"RAM": "32GB", "CPU": "Intel Core Ultra 9", "Battery": "90Wh", "Display": "16 IPS 240Hz"},
+    "images": [
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "OrbitBook Air 14",
+    "brand": "Orbit",
+    "type": "laptop",
+    "price": 1299,
+    "newest": 202601,
+    "availability": "Limited",
+    "description": "Slim and portable laptop with all day battery life.",
+    "storageOptions": ["256GB", "512GB", "1TB"],
+    "colorOptions": ["Blue", "Graphite"],
+    "specs": {"RAM": "16GB", "CPU": "Ryzen 7 8840U", "Battery": "76Wh", "Display": "14 OLED"},
+    "images": [
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Volt S Mini",
+    "brand": "Volt",
+    "type": "mobile",
+    "price": 649,
+    "newest": 202512,
+    "availability": "In Stock",
+    "description": "Compact smartphone with flagship grade camera and chip.",
+    "storageOptions": ["128GB", "256GB"],
+    "colorOptions": ["White", "Green", "Black"],
+    "specs": {"RAM": "8GB", "CPU": "A16 Bionic", "Battery": "4200mAh", "Display": "6.1 OLED"},
+    "images": [
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Nexus Workstation 17",
+    "brand": "Nexus",
+    "type": "laptop",
+    "price": 2299,
+    "newest": 202605,
+    "availability": "In Stock",
+    "description": "Desktop class performance in a premium workstation chassis.",
+    "storageOptions": ["1TB", "2TB", "4TB"],
+    "colorOptions": ["Black", "Silver"],
+    "specs": {"RAM": "64GB", "CPU": "Intel i9 HX", "Battery": "99Wh", "Display": "17 QHD"},
+    "images": [
+      "https://images.unsplash.com/photo-1616628182509-f6f7d4e08f54?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511389026070-a14ae610a1be?auto=format&fit=crop&w=900&q=80"
+    ]
+  }
+]
