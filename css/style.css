@@ -1,18 +1,18 @@
 :root {
-  --bg: #0b1020;
-  --bg-soft: #11182d;
-  --surface: rgba(255, 255, 255, 0.08);
-  --surface-solid: #121a31;
-  --card: #121c36;
-  --text: #e8ecff;
-  --muted: #a5b1d8;
-  --primary: #4f7cff;
-  --primary-2: #7f5cff;
+  --bg: #f7fafc;
+  --bg-soft: #edf2f7;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --card: #ffffff;
+  --text: #1f2a44;
+  --muted: #5b6476;
+  --primary: #2f5bea;
+  --primary-2: #6a45dd;
   --accent: #2dd4bf;
   --danger: #ef476f;
   --success: #34d399;
-  --border: rgba(255, 255, 255, 0.14);
-  --shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+  --border: rgba(196, 198, 208, 0.45);
+  --shadow: 0 10px 30px rgba(27, 58, 107, 0.08);
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -34,8 +34,8 @@ body {
   font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 20% -20%, rgba(127, 92, 255, 0.25), transparent 42%),
-    radial-gradient(circle at 80% -25%, rgba(79, 124, 255, 0.26), transparent 40%),
+    radial-gradient(circle at 20% -20%, rgba(106, 69, 221, 0.13), transparent 42%),
+    radial-gradient(circle at 80% -25%, rgba(47, 91, 234, 0.14), transparent 40%),
     var(--bg);
   line-height: 1.55;
 }
@@ -65,7 +65,7 @@ textarea {
 
 .glass {
   background: var(--surface);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--border);
 }
 

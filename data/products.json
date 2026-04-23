@@ -1,73 +1,193 @@
-[
+﻿[
   {
     "id": 1,
-    "name": "Apex X Pro 5G",
-    "brand": "Apex",
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
     "type": "mobile",
-    "price": 899,
-    "newest": 202603,
+    "price": 1199,
+    "newest": 202604,
     "availability": "In Stock",
-    "description": "Flagship smartphone with AI camera and ultra fast charging.",
-    "storageOptions": ["128GB", "256GB", "512GB"],
-    "colorOptions": ["Obsidian", "Silver", "Blue"],
-    "specs": {"RAM": "12GB", "CPU": "Snapdragon 8 Gen 3", "Battery": "5000mAh", "Display": "6.7 OLED"},
+    "description": "Premium Samsung flagship with advanced camera zoom and AI features.",
+    "storageOptions": ["256GB", "512GB", "1TB"],
+    "colorOptions": ["Titanium Black", "Titanium Gray", "Titanium Violet"],
+    "specs": {
+      "RAM": "12GB",
+      "CPU": "Snapdragon 8 Gen 3",
+      "Battery": "5000mAh",
+      "Display": "6.8 Dynamic AMOLED 2X",
+      "Refresh Rate": "120Hz",
+      "Camera": "200MP + 50MP + 12MP + 10MP",
+      "OS": "Android 14",
+      "Charging": "45W wired"
+    },
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511296265581-c2450046e2a4?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80"
     ]
   },
   {
     "id": 2,
-    "name": "Nexus Fold Air",
-    "brand": "Nexus",
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
     "type": "mobile",
-    "price": 1099,
-    "newest": 202604,
+    "price": 1249,
+    "newest": 202603,
     "availability": "In Stock",
-    "description": "Foldable design with premium hinge and immersive inner display.",
-    "storageOptions": ["256GB", "512GB"],
-    "colorOptions": ["Black", "Violet"],
-    "specs": {"RAM": "12GB", "CPU": "Tensor X2", "Battery": "4700mAh", "Display": "7.8 Fold OLED"},
+    "description": "Titanium iPhone with powerful A17 Pro and pro-grade camera system.",
+    "storageOptions": ["256GB", "512GB", "1TB"],
+    "colorOptions": ["Natural Titanium", "Blue Titanium", "Black Titanium"],
+    "specs": {
+      "RAM": "8GB",
+      "CPU": "A17 Pro",
+      "Battery": "4422mAh",
+      "Display": "6.7 Super Retina XDR",
+      "Refresh Rate": "120Hz ProMotion",
+      "Camera": "48MP + 12MP + 12MP",
+      "OS": "iOS 17",
+      "Charging": "27W wired"
+    },
     "images": [
-      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi 14 Pro",
+    "brand": "Xiaomi",
+    "type": "mobile",
+    "price": 899,
+    "newest": 202605,
+    "availability": "In Stock",
+    "description": "Xiaomi flagship with Leica optics and fast HyperCharge technology.",
+    "storageOptions": ["256GB", "512GB"],
+    "colorOptions": ["Black", "White", "Green"],
+    "specs": {
+      "RAM": "12GB",
+      "CPU": "Snapdragon 8 Gen 3",
+      "Battery": "4880mAh",
+      "Display": "6.73 LTPO AMOLED",
+      "Refresh Rate": "120Hz",
+      "Camera": "50MP + 50MP + 50MP",
+      "OS": "HyperOS",
+      "Charging": "120W wired"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=80"
     ]
   },
   {
-    "id": 3,
-    "name": "TitanBook 16 Ultra",
-    "brand": "Titan",
-    "type": "laptop",
-    "price": 1899,
+    "id": 4,
+    "name": "Redmi Note 13 Pro+",
+    "brand": "Redmi",
+    "type": "mobile",
+    "price": 459,
     "newest": 202602,
     "availability": "In Stock",
-    "description": "High performance laptop for creators and engineers.",
-    "storageOptions": ["512GB", "1TB", "2TB"],
-    "colorOptions": ["Space Gray", "Silver"],
-    "specs": {"RAM": "32GB", "CPU": "Intel Core Ultra 9", "Battery": "90Wh", "Display": "16 IPS 240Hz"},
+    "description": "Balanced Redmi device with premium display and excellent value.",
+    "storageOptions": ["256GB", "512GB"],
+    "colorOptions": ["Midnight Black", "Lavender Purple", "Arctic White"],
+    "specs": {
+      "RAM": "12GB",
+      "CPU": "Dimensity 7200 Ultra",
+      "Battery": "5000mAh",
+      "Display": "6.67 AMOLED",
+      "Refresh Rate": "120Hz",
+      "Camera": "200MP + 8MP + 2MP",
+      "OS": "HyperOS",
+      "Charging": "120W wired"
+    },
     "images": [
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80"
     ]
   },
   {
-    "id": 4,
-    "name": "OrbitBook Air 14",
-    "brand": "Orbit",
+    "id": 5,
+    "name": "Poco F6 Pro",
+    "brand": "Poco",
+    "type": "mobile",
+    "price": 549,
+    "newest": 202606,
+    "availability": "In Stock",
+    "description": "Performance-first Poco smartphone for gaming and multitasking.",
+    "storageOptions": ["256GB", "512GB"],
+    "colorOptions": ["Black", "Yellow", "White"],
+    "specs": {
+      "RAM": "12GB",
+      "CPU": "Snapdragon 8 Gen 2",
+      "Battery": "5000mAh",
+      "Display": "6.67 AMOLED",
+      "Refresh Rate": "120Hz",
+      "Camera": "50MP + 8MP + 2MP",
+      "OS": "HyperOS",
+      "Charging": "120W wired"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dell XPS 15",
+    "brand": "Dell",
     "type": "laptop",
-    "price": 1299,
+    "price": 1799,
     "newest": 202601,
-    "availability": "Limited",
-    "description": "Slim and portable laptop with all day battery life.",
-    "storageOptions": ["256GB", "512GB", "1TB"],
-    "colorOptions": ["Blue", "Graphite"],
-    "specs": {"RAM": "16GB", "CPU": "Ryzen 7 8840U", "Battery": "76Wh", "Display": "14 OLED"},
+    "availability": "In Stock",
+    "description": "Premium Dell laptop for creators with OLED panel and strong CPU.",
+    "storageOptions": ["512GB", "1TB", "2TB"],
+    "colorOptions": ["Platinum Silver", "Graphite"],
+    "specs": {
+      "RAM": "32GB DDR5",
+      "CPU": "Intel Core i9-13900H",
+      "Battery": "86Wh",
+      "Display": "15.6 OLED 3.5K",
+      "GPU": "NVIDIA RTX 4060",
+      "Camera": "720p HD",
+      "OS": "Windows 11",
+      "Weight": "1.92kg"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "HP Spectre x360 14",
+    "brand": "HP",
+    "type": "laptop",
+    "price": 1549,
+    "newest": 202604,
+    "availability": "In Stock",
+    "description": "Convertible premium HP laptop with OLED touch display.",
+    "storageOptions": ["512GB", "1TB"],
+    "colorOptions": ["Nightfall Black", "Slate Blue"],
+    "specs": {
+      "RAM": "16GB LPDDR5",
+      "CPU": "Intel Core Ultra 7",
+      "Battery": "68Wh",
+      "Display": "14 OLED Touch",
+      "GPU": "Intel Arc Graphics",
+      "Camera": "5MP IR",
+      "OS": "Windows 11",
+      "Weight": "1.36kg"
+    },
     "images": [
       "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80",
@@ -76,36 +196,138 @@
     ]
   },
   {
-    "id": 5,
-    "name": "Volt S Mini",
-    "brand": "Volt",
-    "type": "mobile",
-    "price": 649,
-    "newest": 202512,
+    "id": 8,
+    "name": "Samsung Galaxy Book4 Pro",
+    "brand": "Samsung",
+    "type": "laptop",
+    "price": 1699,
+    "newest": 202605,
     "availability": "In Stock",
-    "description": "Compact smartphone with flagship grade camera and chip.",
-    "storageOptions": ["128GB", "256GB"],
-    "colorOptions": ["White", "Green", "Black"],
-    "specs": {"RAM": "8GB", "CPU": "A16 Bionic", "Battery": "4200mAh", "Display": "6.1 OLED"},
+    "description": "Slim Samsung laptop with AMOLED display and long battery life.",
+    "storageOptions": ["512GB", "1TB"],
+    "colorOptions": ["Moonstone Gray", "Silver"],
+    "specs": {
+      "RAM": "16GB",
+      "CPU": "Intel Core Ultra 7",
+      "Battery": "76Wh",
+      "Display": "16 Dynamic AMOLED 2X",
+      "GPU": "Intel Arc Graphics",
+      "Camera": "1080p FHD",
+      "OS": "Windows 11",
+      "Weight": "1.56kg"
+    },
     "images": [
-      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=900&q=80"
+      "https://images.unsplash.com/photo-1616628182509-f6f7d4e08f54?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511389026070-a14ae610a1be?auto=format&fit=crop&w=900&q=80"
     ]
   },
   {
-    "id": 6,
-    "name": "Nexus Workstation 17",
-    "brand": "Nexus",
+    "id": 9,
+    "name": "Apple MacBook Pro 14 M3",
+    "brand": "Apple",
     "type": "laptop",
-    "price": 2299,
-    "newest": 202605,
+    "price": 1999,
+    "newest": 202603,
     "availability": "In Stock",
-    "description": "Desktop class performance in a premium workstation chassis.",
-    "storageOptions": ["1TB", "2TB", "4TB"],
-    "colorOptions": ["Black", "Silver"],
-    "specs": {"RAM": "64GB", "CPU": "Intel i9 HX", "Battery": "99Wh", "Display": "17 QHD"},
+    "description": "Powerful MacBook Pro with M3 chip and excellent battery life.",
+    "storageOptions": ["512GB", "1TB", "2TB"],
+    "colorOptions": ["Space Black", "Silver"],
+    "specs": {
+      "RAM": "18GB",
+      "CPU": "Apple M3 Pro",
+      "Battery": "72Wh",
+      "Display": "14.2 Liquid Retina XDR",
+      "GPU": "18-core GPU",
+      "Camera": "1080p FaceTime",
+      "OS": "macOS Sonoma",
+      "Weight": "1.61kg"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Xiaomi RedmiBook Pro 16",
+    "brand": "Xiaomi",
+    "type": "laptop",
+    "price": 1149,
+    "newest": 202602,
+    "availability": "In Stock",
+    "description": "Large-screen Xiaomi laptop with metal body and solid performance.",
+    "storageOptions": ["512GB", "1TB"],
+    "colorOptions": ["Gray", "Silver"],
+    "specs": {
+      "RAM": "16GB",
+      "CPU": "Intel Core Ultra 5",
+      "Battery": "84Wh",
+      "Display": "16 3.1K 165Hz",
+      "GPU": "Intel Arc Graphics",
+      "Camera": "1080p",
+      "OS": "Windows 11",
+      "Weight": "1.88kg"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Poco X6 Pro",
+    "brand": "Poco",
+    "type": "mobile",
+    "price": 399,
+    "newest": 202601,
+    "availability": "In Stock",
+    "description": "Affordable Poco phone with flagship-level speed and smooth display.",
+    "storageOptions": ["256GB", "512GB"],
+    "colorOptions": ["Black", "Yellow"],
+    "specs": {
+      "RAM": "12GB",
+      "CPU": "Dimensity 8300 Ultra",
+      "Battery": "5000mAh",
+      "Display": "6.67 AMOLED",
+      "Refresh Rate": "120Hz",
+      "Camera": "64MP + 8MP + 2MP",
+      "OS": "HyperOS",
+      "Charging": "67W wired"
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "HP Victus 16",
+    "brand": "HP",
+    "type": "laptop",
+    "price": 1349,
+    "newest": 202606,
+    "availability": "In Stock",
+    "description": "Gaming-focused HP laptop with RTX graphics and high refresh display.",
+    "storageOptions": ["512GB", "1TB"],
+    "colorOptions": ["Mica Silver", "Performance Blue"],
+    "specs": {
+      "RAM": "16GB DDR5",
+      "CPU": "Intel Core i7-14700HX",
+      "Battery": "83Wh",
+      "Display": "16.1 IPS 165Hz",
+      "GPU": "NVIDIA RTX 4060",
+      "Camera": "1080p",
+      "OS": "Windows 11",
+      "Weight": "2.33kg"
+    },
     "images": [
       "https://images.unsplash.com/photo-1616628182509-f6f7d4e08f54?auto=format&fit=crop&w=900&q=80",
       "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=900&q=80",
@@ -114,3 +336,4 @@
     ]
   }
 ]
+

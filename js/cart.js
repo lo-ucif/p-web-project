@@ -15,7 +15,12 @@
     },
     add(product, quantity, storage, color) {
       const items = this.get();
-      const index = items.findIndex((item) => item.id === product.id && item.storage === storage && item.color === color);
+      const index = items.findIndex(
+        (item) =>
+          item.id === product.id &&
+          item.storage === storage &&
+          item.color === color,
+      );
       if (index >= 0) {
         items[index].quantity += quantity;
       } else {
@@ -26,7 +31,7 @@
           image: product.images[0],
           quantity,
           storage,
-          color
+          color,
         });
       }
       this.save(items);
@@ -46,16 +51,21 @@
       return this.get().reduce((sum, item) => sum + item.quantity, 0);
     },
     subtotal() {
-      return this.get().reduce((sum, item) => sum + item.price * item.quantity, 0);
+      return this.get().reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0,
+      );
     },
     clear() {
       localStorage.removeItem(KEY);
       this.updateCount();
     },
     updateCount() {
-      const countElement = document.getElementById("cartCount");
-      if (countElement) countElement.textContent = String(this.count());
-    }
+      const countElements = document.querySelectorAll("#cartCount");
+      countElements.forEach((el) => {
+        el.textContent = String(this.count());
+      });
+    },
   };
 
   window.CartStore = CartStore;

@@ -8,17 +8,29 @@
   if (!form) return;
 
   const fields = {
-    fullName: { input: document.getElementById("fullName"), error: document.getElementById("fullNameError") },
-    address: { input: document.getElementById("address"), error: document.getElementById("addressError") },
-    phone: { input: document.getElementById("phone"), error: document.getElementById("phoneError") },
-    payment: { input: document.getElementById("payment"), error: document.getElementById("paymentError") }
+    fullName: {
+      input: document.getElementById("fullName"),
+      error: document.getElementById("fullNameError"),
+    },
+    address: {
+      input: document.getElementById("address"),
+      error: document.getElementById("addressError"),
+    },
+    phone: {
+      input: document.getElementById("phone"),
+      error: document.getElementById("phoneError"),
+    },
+    payment: {
+      input: document.getElementById("payment"),
+      error: document.getElementById("paymentError"),
+    },
   };
 
   const validators = {
     fullName: (value) => value.trim().length >= 3,
     address: (value) => value.trim().length >= 6,
     phone: (value) => /^\+?[0-9\s-]{8,}$/.test(value.trim()),
-    payment: (value) => value.trim().length > 0
+    payment: (value) => value.trim().length > 0,
   };
 
   function setError(key, isValid) {
@@ -48,8 +60,14 @@
     event.preventDefault();
     if (!validateAll()) return;
 
+    const cartItems = window.CartStore ? CartStore.get() : [];
+    if (!cartItems.length) {
+      alert("Your cart is empty. Add items before checkout.");
+      return;
+    }
+
     alert("Order submitted successfully.");
-    localStorage.removeItem("tech_store_cart");
+    CartStore.clear();
     window.location.href = "index.html";
   });
 })();

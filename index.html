@@ -34,36 +34,40 @@
     </section>
 
     <section id="products" class="main-grid">
-      <aside class="sidebar glass">
-        <h2 style="margin-bottom:0.8rem;">Filters</h2>
-        <div class="filter-group">
-          <label for="brandFilter">Brand</label>
-          <select id="brandFilter" class="select"></select>
-        </div>
-
-        <div class="filter-group">
-          <label for="priceRange">Max Price: <span id="priceValue">$2500</span></label>
-          <input id="priceRange" class="range" type="range" min="300" max="2500" step="50" value="2500">
-        </div>
-
-        <div class="filter-group">
-          <label>Device Type</label>
-          <div style="display:grid; gap:0.45rem; color:var(--muted);">
-            <label><input type="radio" name="deviceType" value="all" checked> All</label>
-            <label><input type="radio" name="deviceType" value="mobile"> Mobile</label>
-            <label><input type="radio" name="deviceType" value="laptop"> Laptop</label>
-          </div>
-        </div>
-      </aside>
-
       <div class="products-panel glass">
-        <div class="panel-head">
+        <div class="panel-head panel-head-wrap">
           <h2>Products</h2>
-          <select id="sortBy" class="select" style="max-width:200px;">
-            <option value="newest">Sort: Newest</option>
-            <option value="price-asc">Sort: Price Low to High</option>
-            <option value="price-desc">Sort: Price High to Low</option>
-          </select>
+          <div class="top-filters">
+            <div class="filter-group filter-inline">
+              <label for="brandFilter">Brand</label>
+              <select id="brandFilter" class="select"></select>
+            </div>
+
+            <div class="filter-group filter-inline">
+              <label for="priceRange">Max Price: <span id="priceValue">$2500</span></label>
+              <input id="priceRange" class="range" type="range" min="300" max="2500" step="50" value="2500">
+            </div>
+
+            <div class="filter-group filter-inline">
+              <label>Device Type</label>
+              <div class="device-type">
+                <label><input type="radio" name="deviceType" value="all" checked> All</label>
+                <label><input type="radio" name="deviceType" value="mobile"> Mobile</label>
+                <label><input type="radio" name="deviceType" value="laptop"> Laptop</label>
+              </div>
+            </div>
+
+            <div class="filter-group filter-inline">
+              <label for="sortBy">Sort</label>
+              <select id="sortBy" class="select">
+                <option value="brand-asc">Brand (A-Z)</option>
+                <option value="brand-desc">Brand (Z-A)</option>
+                <option value="newest">Newest</option>
+                <option value="price-asc">Price Low to High</option>
+                <option value="price-desc">Price High to Low</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div id="productGrid" class="product-grid"></div>
       </div>

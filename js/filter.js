@@ -1,10 +1,10 @@
-(function () {
+﻿(function () {
   const HomePage = {
     state: {
       brand: "all",
       maxPrice: 2500,
       type: "all",
-      sort: "newest"
+      sort: "brand-asc"
     },
     products: [],
     async init() {
@@ -43,6 +43,7 @@
       }
 
       if (sortBy) {
+        sortBy.value = this.state.sort;
         sortBy.addEventListener("change", () => {
           this.state.sort = sortBy.value;
           this.render();
@@ -72,6 +73,8 @@
       if (this.state.sort === "price-asc") list.sort((a, b) => a.price - b.price);
       if (this.state.sort === "price-desc") list.sort((a, b) => b.price - a.price);
       if (this.state.sort === "newest") list.sort((a, b) => b.newest - a.newest);
+      if (this.state.sort === "brand-asc") list.sort((a, b) => a.brand.localeCompare(b.brand));
+      if (this.state.sort === "brand-desc") list.sort((a, b) => b.brand.localeCompare(a.brand));
 
       return list;
     },
@@ -91,7 +94,9 @@
             <article class="product-card">
               <img class="product-thumb" src="${product.images[0]}" alt="${product.name}">
               <h3 class="product-title">${product.name}</h3>
-              <p class="text-muted" style="margin-bottom:0.2rem;">${product.brand} � ${product.type}</p>
+              <p class="text-muted" style="margin-bottom:0.2rem;">${product.brand} • ${product.type}</p>
+              <p class="text-muted" style="font-size:0.86rem; margin-bottom:0.15rem;">RAM: ${product.specs.RAM || "N/A"}</p>
+              <p class="text-muted" style="font-size:0.86rem; margin-bottom:0.35rem;">CPU: ${product.specs.CPU || "N/A"}</p>
               <p class="product-price">${formatPrice(product.price)}</p>
               <a class="btn btn-primary" href="product.html?id=${product.id}">View Details</a>
             </article>

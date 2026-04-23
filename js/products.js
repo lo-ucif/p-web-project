@@ -1,22 +1,31 @@
-(function () {
+﻿(function () {
   const fallbackProducts = [
     {
       id: 1,
-      name: "Apex X Pro 5G",
-      brand: "Apex",
+      name: "Samsung Galaxy S24 Ultra",
+      brand: "Samsung",
       type: "mobile",
-      price: 899,
-      newest: 202603,
+      price: 1199,
+      newest: 202604,
       availability: "In Stock",
-      description: "Flagship smartphone with AI camera and ultra fast charging.",
-      storageOptions: ["128GB", "256GB", "512GB"],
-      colorOptions: ["Obsidian", "Silver", "Blue"],
-      specs: { RAM: "12GB", CPU: "Snapdragon 8 Gen 3", Battery: "5000mAh", Display: "6.7 OLED" },
+      description: "Premium Samsung flagship with advanced camera zoom and AI features.",
+      storageOptions: ["256GB", "512GB", "1TB"],
+      colorOptions: ["Titanium Black", "Titanium Gray", "Titanium Violet"],
+      specs: {
+        RAM: "12GB",
+        CPU: "Snapdragon 8 Gen 3",
+        Battery: "5000mAh",
+        Display: "6.8 Dynamic AMOLED 2X",
+        "Refresh Rate": "120Hz",
+        Camera: "200MP + 50MP + 12MP + 10MP",
+        OS: "Android 14",
+        Charging: "45W wired"
+      },
       images: [
-        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1511296265581-c2450046e2a4?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80"
       ]
     }
   ];
@@ -44,3 +53,4 @@
 
   window.ProductData = ProductData;
 })();
+
