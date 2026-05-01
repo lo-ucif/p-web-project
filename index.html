@@ -1,85 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mobile and Computer Store System</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-</head>
-<body data-page="home">
-  <header class="site-header glass page-shell">
-    <nav class="navbar">
-      <a class="nav-brand" href="index.html"><span class="logo-dot"></span>TechStore</a>
-      <div class="nav-links">
-        <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="index.html#products">Products</a>
-        <a class="nav-link" href="cart.html">Cart <span id="cartCount">0</span></a>
-        <a class="btn" href="admin.html">Admin Login</a>
-      </div>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile and Computer Store System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body data-page="home">
+    <header class="site-header glass page-shell">
+      <nav class="navbar">
+        <a class="nav-brand" href="index.html"
+          ><span class="logo-dot"></span>TechStore</a
+        >
+        <div class="nav-links">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="index.html#products">Products</a>
+          <a class="nav-link" href="cart.html"
+            >Cart <span id="cartCount">0</span></a
+          >
+          <a class="btn" href="admin.html">Admin Login</a>
+        </div>
+      </nav>
+    </header>
 
-  <main class="main-home page-shell">
-    <section class="hero glass">
-      <div class="hero-banner">
-        <h1>Modern Mobile and Computer Store System</h1>
-        <p>Discover top phones and laptops with clean filters, fast checkout, and a smooth shopping flow.</p>
-        <a class="btn btn-primary" href="#products">Shop Collection</a>
-      </div>
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Tech showcase" style="border-radius:14px; min-height:240px; object-fit:cover;">
-    </section>
+    <main class="main-home page-shell">
+      <section class="hero glass">
+        <div class="hero-banner">
+          <h1>Modern Mobile and Computer Store System</h1>
+          <p>
+            Discover top phones and laptops with clean filters, fast checkout,
+            and a smooth shopping flow.
+          </p>
+          <a class="btn btn-primary" href="#products">Shop Collection</a>
+        </div>
+        <img
+          src="assets\images\download (24).jpg"
+          alt="Tech showcase"
+          style="border-radius: 14px; min-height: 240px; object-fit: cover"
+        />
+      </section>
 
-    <section id="products" class="main-grid">
-      <div class="products-panel glass">
-        <div class="panel-head panel-head-wrap">
-          <h2>Products</h2>
-          <div class="top-filters">
-            <div class="filter-group filter-inline">
-              <label for="brandFilter">Brand</label>
-              <select id="brandFilter" class="select"></select>
-            </div>
+      <section id="products" class="main-grid">
+        <div class="products-panel glass">
+          <div class="panel-head panel-head-wrap">
+            <h2>Products</h2>
+            <div class="top-filters">
+              <div class="filter-group filter-inline">
+                <label for="brandFilter">Brand</label>
+                <select id="brandFilter" class="select"></select>
+              </div>
 
-            <div class="filter-group filter-inline">
-              <label for="priceRange">Max Price: <span id="priceValue">$2500</span></label>
-              <input id="priceRange" class="range" type="range" min="300" max="2500" step="50" value="2500">
-            </div>
+              <div class="filter-group filter-inline">
+                <label for="priceRange"
+                  >Max Price: <span id="priceValue">$2500</span></label
+                >
+                <input
+                  id="priceRange"
+                  class="range"
+                  type="range"
+                  min="300"
+                  max="2500"
+                  step="50"
+                  value="2500"
+                />
+              </div>
 
-            <div class="filter-group filter-inline">
-              <label>Device Type</label>
-              <div class="device-type">
-                <label><input type="radio" name="deviceType" value="all" checked> All</label>
-                <label><input type="radio" name="deviceType" value="mobile"> Mobile</label>
-                <label><input type="radio" name="deviceType" value="laptop"> Laptop</label>
+              <div class="filter-group filter-inline">
+                <label>Device Type</label>
+                <div class="device-type">
+                  <label
+                    ><input
+                      type="radio"
+                      name="deviceType"
+                      value="all"
+                      checked
+                    />
+                    All</label
+                  >
+                  <label
+                    ><input type="radio" name="deviceType" value="mobile" />
+                    Mobile</label
+                  >
+                  <label
+                    ><input type="radio" name="deviceType" value="laptop" />
+                    Laptop</label
+                  >
+                </div>
+              </div>
+
+              <div class="filter-group filter-inline">
+                <label for="sortBy">Sort</label>
+                <select id="sortBy" class="select">
+                  <option value="brand-asc">Brand (A-Z)</option>
+                  <option value="brand-desc">Brand (Z-A)</option>
+                  <option value="newest">Newest</option>
+                  <option value="price-asc">Price Low to High</option>
+                  <option value="price-desc">Price High to Low</option>
+                </select>
               </div>
             </div>
-
-            <div class="filter-group filter-inline">
-              <label for="sortBy">Sort</label>
-              <select id="sortBy" class="select">
-                <option value="brand-asc">Brand (A-Z)</option>
-                <option value="brand-desc">Brand (Z-A)</option>
-                <option value="newest">Newest</option>
-                <option value="price-asc">Price Low to High</option>
-                <option value="price-desc">Price High to Low</option>
-              </select>
-            </div>
           </div>
+          <div id="productGrid" class="product-grid"></div>
         </div>
-        <div id="productGrid" class="product-grid"></div>
-      </div>
-    </section>
+      </section>
 
-    <p class="footer-note">teck store.</p>
-  </main>
+      <p class="footer-note">teck store.</p>
+    </main>
 
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/filter.js"></script>
-</body>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/filter.js"></script>
+  </body>
 </html>
