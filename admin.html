@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - TechStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand"><span class="logo-dot"></span>TechStore Admin</div>
+      <div class="nav-item active" data-view="dashboard">Dashboard</div>
+      <div class="nav-item" data-view="products">Products</div>
+      <div class="nav-item" data-view="orders">Orders</div>
+      
+    </aside>
+    
+    <main class="admin-main">
+      <header class="admin-header">
+        <h1 class="admin-title" id="pageTitle">Dashboard</h1>
+        <button class="btn" onclick="window.location.href='index.html'">Back to Store</button>
+      </header>
+
+      <div id="dashboardView" class="view-section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Products</div>
+            <div class="stat-value primary" id="statProducts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Orders</div>
+            <div class="stat-value" id="statOrders">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Active Orders</div>
+            <div class="stat-value accent" id="statActiveOrders">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Revenue</div>
+            <div class="stat-value success" id="statRevenue">$0</div>
+          </div>
+        </div>
+
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Recent Orders</h2>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="recentOrdersTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="productsView" class="view-section" style="display:none;">
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Product Management</h2>
+            <button class="btn btn-primary" onclick="openProductModal()">+ Add Product</button>
+          </div>
+          <div class="search-bar">
+            <input type="text" class="field" id="productSearch" placeholder="Search products..." oninput="filterProducts()">
+            <select class="select" id="productTypeFilter" onchange="filterProducts()" style="max-width:150px;">
+              <option value="all">All Types</option>
+              <option value="mobile">Mobile</option>
+              <option value="laptop">Laptop</option>
+            </select>
+            <select class="select" id="productBrandFilter" onchange="filterProducts()" style="max-width:150px;">
+              <option value="all">All Brands</option>
+            </select>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="ordersView" class="view-section" style="display:none;">
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Order Management</h2>
+          </div>
+          <div class="search-bar">
+            <input type="text" class="field" id="orderSearch" placeholder="Search orders..." oninput="filterOrders()">
+            <select class="select" id="orderStatusFilter" onchange="filterOrders()" style="max-width:150px;">
+              <option value="all">All Status</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="productModalTitle">Add Product</h2>
+        <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      </div>
+      <form id="productForm" onsubmit="saveProduct(event)">
+        <input type="hidden" id="productId">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" class="field" id="productName" required>
+          </div>
+          <div class="form-group">
+            <label>Brand</label>
+            <select class="select" id="productBrand" required>
+              <option value="">Select Brand</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Apple">Apple</option>
+              <option value="Xiaomi">Xiaomi</option>
+              <option value="Redmi">Redmi</option>
+              <option value="Poco">Poco</option>
+              <option value="Dell">Dell</option>
+              <option value="HP">HP</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select class="select" id="productType" required>
+              <option value="">Select Type</option>
+              <option value="mobile">Mobile</option>
+              <option value="laptop">Laptop</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Price ($)</label>
+            <input type="number" class="field" id="productPrice" required min="0">
+          </div>
+          <div class="form-group full">
+            <label>Description</label>
+            <textarea class="field" id="productDescription" rows="2"></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Image URL</label>
+            <input type="url" class="field" id="productImage" placeholder="https://...">
+          </div>
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:1rem;">
+          <button type="submit" class="btn btn-primary">Save Product</button>
+          <button type="button" class="btn" onclick="closeProductModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Update Order Status</h2>
+        <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+      </div>
+      <input type="hidden" id="orderModalId">
+      <div class="form-group">
+        <label>Status</label>
+        <select class="select" id="orderStatus">
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div style="margin-top:1rem;display:flex;gap:1rem;">
+        <button class="btn btn-primary" onclick="saveOrderStatus()">Update Status</button>
+        <button class="btn" onclick="closeOrderModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
